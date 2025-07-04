@@ -15,7 +15,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${spaceGrotesk.variable} font-sans`}>
+      <head>
+        <link rel="icon" href="/favicon.ico" />
+        <title>Fairform - Instant Compliance Policy Packs</title>
+        <meta name="description" content="Generate audit-ready compliance policy packs for Australian small businesses" />
+      </head>
+      <body className={`${spaceGrotesk.variable}`}>
         <ThemeProviders>
           <CssBaseline />
           {children}

@@ -1,14 +1,5 @@
-import { CheckIcon } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-
-interface PricingCardProps {
-  title: string;
-  price: string;
-  period: string;
-  features: string[];
-  isPopular?: boolean;
-  ctaText: string;
-}
+import { Card, CardContent, Typography, Button, Box, Chip } from '@mui/material';
+import CheckIcon from '@mui/icons-material/Check';
 
 export default function PricingCard({ 
   title, 
@@ -17,38 +8,73 @@ export default function PricingCard({
   features, 
   isPopular = false, 
   ctaText 
-}: PricingCardProps) {
+}: {
+  title: string;
+  price: string;
+  period: string;
+  features: string[];
+  isPopular?: boolean;
+  ctaText: string;
+}) {
   return (
-    <div className={`bg-white rounded-xl shadow-lg overflow-hidden border ${
-      isPopular ? 'border-blue-500 ring-2 ring-blue-500 ring-opacity-50' : 'border-gray-200'
-    }`}>
+    <Card sx={{ 
+      height: '100%',
+      border: isPopular ? '2px solid' : '1px solid',
+      borderColor: isPopular ? 'secondary.main' : 'divider',
+      boxShadow: isPopular ? 3 : 0,
+      position: 'relative',
+    }}>
       {isPopular && (
-        <div className="bg-blue-500 text-white text-center py-2">
-          <p className="font-semibold">MOST POPULAR</p>
-        </div>
+        <Chip 
+          label="MOST POPULAR" 
+          color="secondary" 
+          sx={{ 
+            position: 'absolute', 
+            top: -12, 
+            right: 20,
+            fontWeight: 'bold',
+            fontSize: '0.75rem'
+          }} 
+        />
       )}
-      <div className="p-6">
-        <h3 className="text-2xl font-bold mb-4">{title}</h3>
-        <div className="mb-6">
-          <span className="text-4xl font-bold">{price}</span>
-          <span className="text-gray-600">/{period}</span>
-        </div>
+      
+      <CardContent sx={{ p: 3 }}>
+        <Typography variant="h5" component="div" gutterBottom>
+          {title}
+        </Typography>
         
-        <ul className="mb-8 space-y-3">
+        <Box sx={{ my: 2 }}>
+          <Typography variant="h4" component="div">
+            {price}
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            per {period}
+          </Typography>
+        </Box>
+        
+        <Box component="ul" sx={{ pl: 0, listStyle: 'none', my: 3 }}>
           {features.map((feature, index) => (
-            <li key={index} className="flex items-center">
-              <CheckIcon className="text-green-500 mr-2" size={18} />
-              <span>{feature}</span>
-            </li>
+            <Box 
+              key={index} 
+              component="li" 
+              sx={{ display: 'flex', alignItems: 'flex-start', mb: 1.5 }}
+            >
+              <CheckIcon color="success" sx={{ mr: 1.5, mt: 0.5 }} />
+              <Typography variant="body1">{feature}</Typography>
+            </Box>
           ))}
-        </ul>
+        </Box>
         
         <Button 
-          className={`w-full ${isPopular ? 'bg-blue-600 hover:bg-blue-700' : 'bg-gray-900 hover:bg-gray-800'}`}
+          variant={isPopular ? 'contained' : 'outlined'} 
+          color={isPopular ? 'secondary' : 'primary'}
+          fullWidth
+          size="large"
+          sx={{ py: 1.5 }}
         >
           {ctaText}
         </Button>
-      </div>
-    </div>
+      </CardContent>
+    </Card>
   );
 }

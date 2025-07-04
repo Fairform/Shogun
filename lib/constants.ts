@@ -1,5 +1,6 @@
-import React from 'react';
-import { FaHeartbeat, FaChild, FaHardHat } from 'react-icons/fa';
+import HealthAndSafetyIcon from '@mui/icons-material/HealthAndSafety';
+import ChildCareIcon from '@mui/icons-material/ChildCare';
+import ConstructionIcon from '@mui/icons-material/Construction';
 
 export const industries = [
   { id: 'ndis', name: 'NDIS' },
@@ -14,17 +15,17 @@ export const industries = [
 
 export const benefits = [
   {
-    icon: <FaHeartbeat size={32} color="#1779ba" />,
+    icon: <HealthAndSafetyIcon sx={{ fontSize: 40, color: '#1779ba' }} />,
     title: 'NDIS Providers',
     description: 'Comprehensive policies meeting NDIS Quality and Safeguards Commission requirements.'
   },
   {
-    icon: <FaChild size={32} color="#1779ba" />,
+    icon: <ChildCareIcon sx={{ fontSize: 40, color: '#1779ba' }} />,
     title: 'Childcare Centers',
     description: 'Policies aligned with National Quality Framework and state regulations.'
   },
   {
-    icon: <FaHardHat size={32} color="#1779ba" />,
+    icon: <ConstructionIcon sx={{ fontSize: 40, color: '#1779ba' }} />,
     title: 'Construction',
     description: 'WHS policies compliant with Safe Work Australia standards.'
   }

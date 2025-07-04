@@ -1,60 +1,73 @@
-import Link from 'next/link';
+import { Box, Container, Grid, Typography, Link } from '@mui/material';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
   
   return (
-    <footer className="bg-gray-50 pt-16 pb-10">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
-          <div>
-            <h3 className="text-xl font-bold mb-4">Fairform</h3>
-            <p className="text-gray-600 mb-4">
+    <Box component="footer" py={8} bgcolor="background.default">
+      <Container maxWidth="lg">
+        <Grid container spacing={4}>
+          <Grid item xs={12} md={4}>
+            <Typography variant="h6" gutterBottom>
+              Fair<span style={{ color: '#1779ba' }}>form</span>
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
               Instant, audit-ready compliance policy packs tailored to Australian small businesses.
-            </p>
-          </div>
+            </Typography>
+          </Grid>
           
-          <div>
-            <h4 className="font-semibold mb-4">Company</h4>
-            <ul className="space-y-2">
-              <li><Link href="#" className="text-gray-600 hover:text-gray-900">About Us</Link></li>
-              <li><Link href="#" className="text-gray-600 hover:text-gray-900">Careers</Link></li>
-              <li><Link href="#" className="text-gray-600 hover:text-gray-900">Contact</Link></li>
-            </ul>
-          </div>
+          <Grid item xs={6} md={2}>
+            <Typography variant="subtitle1" gutterBottom>
+              Company
+            </Typography>
+            <Link href="#" variant="body2" color="text.secondary" display="block" mb={1}>
+              About Us
+            </Link>
+            <Link href="#" variant="body2" color="text.secondary" display="block" mb={1}>
+              Careers
+            </Link>
+            <Link href="#" variant="body2" color="text.secondary" display="block">
+              Contact
+            </Link>
+          </Grid>
           
-          <div>
-            <h4 className="font-semibold mb-4">Resources</h4>
-            <ul className="space-y-2">
-              <li><Link href="#" className="text-gray-600 hover:text-gray-900">Blog</Link></li>
-              <li><Link href="#" className="text-gray-600 hover:text-gray-900">Compliance Guides</Link></li>
-              <li><Link href="#" className="text-gray-600 hover:text-gray-900">Industry Updates</Link></li>
-            </ul>
-          </div>
+          <Grid item xs={6} md={2}>
+            <Typography variant="subtitle1" gutterBottom>
+              Resources
+            </Typography>
+            <Link href="#" variant="body2" color="text.secondary" display="block" mb={1}>
+              Blog
+            </Link>
+            <Link href="#" variant="body2" color="text.secondary" display="block" mb={1}>
+              Compliance Guides
+            </Link>
+            <Link href="#" variant="body2" color="text.secondary" display="block">
+              Industry Updates
+            </Link>
+          </Grid>
           
-          <div>
-            <h4 className="font-semibold mb-4">Legal</h4>
-            <ul className="space-y-2">
-              <li><Link href="#" className="text-gray-600 hover:text-gray-900">Terms of Service</Link></li>
-              <li><Link href="#" className="text-gray-600 hover:text-gray-900">Privacy Policy</Link></li>
-              <li><Link href="#" className="text-gray-600 hover:text-gray-900">GDPR</Link></li>
-            </ul>
-          </div>
-        </div>
+          <Grid item xs={6} md={2}>
+            <Typography variant="subtitle1" gutterBottom>
+              Legal
+            </Typography>
+            <Link href="#" variant="body2" color="text.secondary" display="block" mb={1}>
+              Terms of Service
+            </Link>
+            <Link href="#" variant="body2" color="text.secondary" display="block" mb={1}>
+              Privacy Policy
+            </Link>
+            <Link href="#" variant="body2" color="text.secondary" display="block">
+              GDPR
+            </Link>
+          </Grid>
+        </Grid>
         
-        <div className="border-t border-gray-200 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-600 mb-4 md:mb-0">
-              &copy; {currentYear} Fairform. All rights reserved.
-            </p>
-            <div className="flex space-x-6">
-              <Link href="#" className="text-gray-600 hover:text-gray-900">Twitter</Link>
-              <Link href="#" className="text-gray-600 hover:text-gray-900">LinkedIn</Link>
-              <Link href="#" className="text-gray-600 hover:text-gray-900">Facebook</Link>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
+        <Box mt={6} pt={4} borderTop="1px solid" borderColor="divider">
+          <Typography variant="body2" color="text.secondary" align="center">
+            &copy; {currentYear} Fairform. All rights reserved.
+          </Typography>
+        </Box>
+      </Container>
+    </Box>
   );
 }
