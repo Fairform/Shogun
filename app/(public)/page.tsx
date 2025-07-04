@@ -1,8 +1,12 @@
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import HeroSection from '../../components/HeroSection';
-import PricingCard from '../../components/PricingCard';
-import { Container, Grid, Box, Typography, Button } from '@mui/material';
+// import PricingCard from '../../components/PricingCard';
+// If PricingCard exists at a different path, update the import accordingly, e.g.:
+import PricingCard from '../../components/PricingCard'; // <-- Update this path if needed
+// If the file does not exist, create it at ../../components/PricingCard.tsx or .js
+import { Container, Box, Typography, Button } from '@mui/material';
+import Grid from '@mui/material/Grid';
 import { benefits, pricingPlans, testimonials } from '../../lib/constants';
 
 export default function Home() {
