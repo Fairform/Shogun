@@ -1,7 +1,7 @@
-import { Box, Container, Typography, Button, Select, MenuItem, FormControl, InputLabel } from '@mui/material';
+import { Box, Container, Typography, FormControl, InputLabel, Select, MenuItem, Button } from '@mui/material';
 import Link from 'next/link';
 import { useState } from 'react';
-import { industries } from '@/lib/constants';
+import { industries } from '../../lib/constants';
 
 export default function HeroSection() {
   const [industry, setIndustry] = useState('');
@@ -10,15 +10,15 @@ export default function HeroSection() {
     <Box sx={{
       pt: { xs: 15, md: 20 },
       pb: 10,
-      background: 'linear-gradient(to bottom, rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url(https://images.unsplash.com/photo-1454165804606-c3d57bc86b40)',
+      background: 'linear-gradient(to bottom, rgba(255,255,255,0.9), rgba(255,255,255,0.9))',
       backgroundSize: 'cover',
       backgroundPosition: 'center',
     }}>
-      <Container maxWidth="md" sx={{ px: 3 }}>
-        <Typography variant="h1" align="center" gutterBottom>
+      <Container maxWidth="md" sx={{ px: 3, textAlign: 'center' }}>
+        <Typography variant="h2" fontWeight={700} mb={3}>
           Generate your compliance policy pack in <span style={{ color: '#1779ba' }}>60 seconds</span>
         </Typography>
-        <Typography variant="body1" align="center" color="text.secondary" mb={4}>
+        <Typography variant="h6" color="text.secondary" mb={5}>
           Trusted by sole traders, NDIS providers, coaches, and more across Australia
         </Typography>
         
@@ -28,9 +28,10 @@ export default function HeroSection() {
           p: 3, 
           boxShadow: 3,
           maxWidth: 600,
-          mx: 'auto'
+          mx: 'auto',
+          textAlign: 'left'
         }}>
-          <FormControl fullWidth sx={{ mb: 2 }}>
+          <FormControl fullWidth sx={{ mb: 3 }}>
             <InputLabel>Select your industry</InputLabel>
             <Select
               value={industry}

@@ -23,6 +23,10 @@ export default function PricingCard({
       borderColor: isPopular ? 'secondary.main' : 'divider',
       boxShadow: isPopular ? 3 : 0,
       position: 'relative',
+      transition: 'transform 0.3s',
+      '&:hover': {
+        transform: 'translateY(-5px)'
+      }
     }}>
       {isPopular && (
         <Chip 
@@ -39,12 +43,12 @@ export default function PricingCard({
       )}
       
       <CardContent sx={{ p: 3 }}>
-        <Typography variant="h5" component="div" gutterBottom>
+        <Typography variant="h5" component="div" gutterBottom fontWeight={700}>
           {title}
         </Typography>
         
         <Box sx={{ my: 2 }}>
-          <Typography variant="h4" component="div">
+          <Typography variant="h3" component="div" fontWeight={800}>
             {price}
           </Typography>
           <Typography variant="body2" color="text.secondary">
@@ -70,7 +74,7 @@ export default function PricingCard({
           color={isPopular ? 'secondary' : 'primary'}
           fullWidth
           size="large"
-          sx={{ py: 1.5 }}
+          sx={{ py: 1.5, fontWeight: 600 }}
         >
           {ctaText}
         </Button>
