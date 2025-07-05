@@ -1,4 +1,4 @@
-import IndustryForm from '@/components/IndustryForm';
+import IndustryForm from ../../../components/IndustryForm';;
 
 export default function Home() {
   return (

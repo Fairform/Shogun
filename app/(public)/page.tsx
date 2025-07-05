@@ -1,19 +1,14 @@
-import Header from '../../components/Header';
-import Footer from '../../components/Footer';
-import HeroSection from '../../components/HeroSection';
-// import PricingCard from '../../components/PricingCard';
-// If PricingCard exists at a different path, update the import accordingly, e.g.:
-import PricingCard from '../../components/PricingCard'; // <-- Update this path if needed
-// If the file does not exist, create it at ../../components/PricingCard.tsx or .js
-import { Container, Box, Typography, Button } from '@mui/material';
-import Grid from '@mui/material/Grid';
-import { benefits, pricingPlans, testimonials } from '../../lib/constants';
+import Header from '../../../components/Header';
+import Footer from '../../../components/Footer';
+import HeroSection from '../../../components/HeroSection';
+import PricingCard from '../../../components/PricingCard';
+import { benefits, pricingPlans, testimonials } from '../../../lib/constants';
+import { Container, Box, Typography, Button, Grid } from '@mui/material';
 
 export default function Home() {
   return (
     <>
       <Header />
-      
       <HeroSection />
       
       {/* Industry Benefits */}
@@ -27,8 +22,8 @@ export default function Home() {
           </Typography>
           
           <Grid container spacing={4}>
-            {benefits.map((benefit, index) => (
-              <Grid item xs={12} md={4} key={index}>
+            {benefits.map((benefit: { icon: React.ReactNode; title: string; description: string }, index: number) => (
+              <Grid item xs={12} md={4} key={index} component="div">
                 <Box textAlign="center" bgcolor="background.paper" p={4} borderRadius={2} boxShadow={3} height="100%">
                   <Box 
                     display="flex" 
@@ -68,23 +63,11 @@ export default function Home() {
           
           <Grid container spacing={4}>
             {[
-              { 
-                step: 1, 
-                title: "Select Your Industry", 
-                description: "Choose from our specialized templates for your sector and region" 
-              },
-              { 
-                step: 2, 
-                title: "Enter Business Details", 
-                description: "Provide your company information and upload your logo" 
-              },
-              { 
-                step: 3, 
-                title: "Download Instantly", 
-                description: "Receive branded, audit-ready policy packs in DOCX and PDF formats" 
-              }
+              { step: 1, title: "Select Your Industry", description: "Choose from our specialized templates for your sector and region" },
+              { step: 2, title: "Enter Business Details", description: "Provide your company information and upload your logo" },
+              { step: 3, title: "Download Instantly", description: "Receive branded, audit-ready policy packs in DOCX and PDF formats" }
             ].map((item, index) => (
-              <Grid item xs={12} md={4} key={index}>
+              <Grid item xs={12} md={4} key={index} component="div">
                 <Box textAlign="center">
                   <Box 
                     display="flex" 
@@ -125,9 +108,16 @@ export default function Home() {
           </Typography>
           
           <Grid container spacing={4}>
-            {pricingPlans.map((plan, index) => (
-              <Grid item xs={12} md={4} key={index}>
-                <PricingCard {...plan} />
+            {pricingPlans.map((plan: { title: string; price: string; period: string; features: string[]; isPopular?: boolean; ctaText: string }, index: number) => (
+              <Grid item xs={12} md={4} key={index} component="div">
+                <PricingCard 
+                  title={plan.title}
+                  price={plan.price}
+                  period={plan.period}
+                  features={plan.features}
+                  isPopular={plan.isPopular}
+                  ctaText={plan.ctaText}
+                />
               </Grid>
             ))}
           </Grid>
@@ -145,8 +135,8 @@ export default function Home() {
           </Typography>
           
           <Grid container spacing={4}>
-            {testimonials.map((testimonial, index) => (
-              <Grid item xs={12} md={4} key={index}>
+            {testimonials.map((testimonial: { quote: string; author: string; role: string }, index: number) => (
+              <Grid item xs={12} md={4} key={index} component="div">
                 <Box bgcolor="background.paper" p={4} borderRadius={2} boxShadow={3} height="100%">
                   <Typography variant="body1" fontStyle="italic" mb={3}>
                     "{testimonial.quote}"

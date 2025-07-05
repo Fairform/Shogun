@@ -43,7 +43,8 @@ export const pricingPlans = [
       'No Automatic Updates',
       'No Multi-Industry Access'
     ],
-    ctaText: 'Get Started'
+    ctaText: 'Get Started',
+    isPopular: false
   },
   {
     title: 'Pro',
@@ -70,7 +71,8 @@ export const pricingPlans = [
       'Team Management',
       'Dedicated Account Manager'
     ],
-    ctaText: 'Contact Sales'
+    ctaText: 'Contact Sales',
+    isPopular: false
   }
 ];
 
